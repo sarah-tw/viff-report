@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="viffreport">
+<head>
+  <title>Viff Report</title>
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <script type="text/javascript" src="js/angular.min.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/viff.js"></script>
+</head>
+<body ng-controller="ViffCtrl">
+  
+  <header>
+    <h1>Viff Report</h1>
+
+    <select class="select-browser" ng-model="defaultBrowser">
+      <option value="chrome" >Chrome</option>
+      <option value="firefox">Firefox</option>
+      <option value="IE">IE</option>
+    </select>
+
+    <div class="show-all-cases">
+      
+      <input type="checkbox" ng-model="hasDiff">Show all cases
+    </div>
+    
+    <div class="viff-result" >
+      <span> {{pages.length - viffPages().length}} </span> pass in <span> {{pages.length}} </span>cases, 30 mins
+    </div>
+
+    <div style="clear:both"></div>
+  </header>
+  <div class="main-content">
+    <div class="nav-bar">
+      <input type="text" ng-model="query">Search
+      <ul>
+        <li ng-repeat="page in pages | filter:query | orderBy: orderPro | filter: hasDiff | filter: defaultBrowser">
+          <span ng-click="changePath(page.url)" class="viff-{{page.hasDiff}}">{{page.url}}</span>
+        </li>
+      </ul>
+    </div> 
+
+        <div class="test-report">
+      <div class="local">
+        <h4>Local screenshot</h4>
+        <img ng-src="{{local}}">
+      </div>
+      <div class="production">
+      <h4>Production screenshot</h4>
+      <img src="{{production}}" >
+    </div>
+    </div>
+
+    <div class="viff-report">
+      <h4>Viff screenshot</h4>
+      <img src="{{viff}}">
+      <br>
+      <button ng-click="acceptDiff(currentPath)">accept this diff</button>
+    </div>
+  </div>
+  <footer>
+  </footer>
+
+</body>
+</html>

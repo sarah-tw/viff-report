@@ -10,12 +10,16 @@
 <body ng-controller="ViffCtrl">
   
   <header>
-    <h1>Viff Report</h1>
+    <h1>Viff Report(<span> {{pages.length - viffPages().length}} </span> pass in <span> {{pages.length}} </span>cases)</h1>
 
-    <select class="select-browser" ng-model="defaultBrowser">
-      <option value="chrome" >Chrome</option>
-      <option value="firefox">Firefox</option>
-      <option value="IE">IE</option>
+    <select class="select-browser" ng-model="currentBrowser">
+      <option value="chrome">chrome</option>
+      <option value="ie">ie</option>
+      <option value="firefox">firefox</option>
+      <option value="safari">safari</option>
+      <!-- <option ng-repeat="browser in browsers" value="{{browser}}" >
+        {{browser}}
+      </option> -->
     </select>
 
     <div class="show-all-cases">
@@ -24,7 +28,7 @@
     </div>
     
     <div class="viff-result" >
-      <span> {{pages.length - viffPages().length}} </span> pass in <span> {{pages.length}} </span>cases, 30 mins
+     Finished in {{currentPage.analysisTime}}ms
     </div>
 
     <div style="clear:both"></div>
@@ -33,32 +37,31 @@
     <div class="nav-bar">
       <input type="text" ng-model="query">Search
       <ul>
-        <li ng-repeat="page in pages | filter:query | orderBy: orderPro | filter: hasDiff | filter: defaultBrowser">
-          <span ng-click="changePath(page.url)" class="viff-{{page.hasDiff}}">{{page.url}}</span>
+        <li ng-repeat="page in pages | filter:query | orderBy: orderPro | filter: hasDiff | filter: currentBrowser">
+          <span ng-click="changePath(page.url)" class="viff-{{!page.isSameDimensions}}">{{page.url}}</span>
         </li>
       </ul>
     </div> 
 
-        <div class="test-report">
+    <div class="test-report" style="border-right: 2px solid #ccc">
       <div class="local">
-        <h4>Local screenshot</h4>
-        <img ng-src="{{local}}">
+        <h4>{{currentPage.envs[0]["name"]}}</h4>
+        <img ng-src="{{evn1Shot}}" style="max-width:400px; max-height: 800px">
       </div>
       <div class="production">
-      <h4>Production screenshot</h4>
-      <img src="{{production}}" >
+      <h4>{{currentPage.envs[1]["name"]}}</h4>
+      <img ng-src="{{evn2Shot}}" style="max-width:400px; max-height: 800px">
     </div>
     </div>
 
     <div class="viff-report">
-      <h4>Viff screenshot</h4>
-      <img src="{{viff}}">
+      <h4>Viff screenshot(misMatchPercentage: {{currentPage.misMatchPercentage}})</h4>
+      <img src="{{viffShot}}" style="max-width:400px; max-height: 800px">
       <br>
-      <button ng-click="acceptDiff(currentPath)">accept this diff</button>
+
+      <button ng-click="acceptDiff()">accept this diff</button>
     </div>
   </div>
-  <footer>
-  </footer>
 
 </body>
 </html>

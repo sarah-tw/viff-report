@@ -1,0 +1,74 @@
+{ "caseCount" : 8,
+  "compares" : { "chrome" : { "/" : { "analysisTime" : 187,
+              "images" : { "build" : "screenshots/chrome/%2F/build.png",
+                  "diff" : "screenshots/chrome/%2F/diff.png",
+                  "prod" : "screenshots/chrome/%2F/prod.png"
+                },
+              "isSameDimensions" : false,
+              "misMatchPercentage" : 12.699999999999999
+            },
+          "/404.html" : { "analysisTime" : 108,
+              "images" : { "build" : "screenshots/chrome/%2F404.html/build.png",
+                  "diff" : "screenshots/chrome/%2F404.html/diff.png",
+                  "prod" : "screenshots/chrome/%2F404.html/prod.png"
+                },
+              "isSameDimensions" : true,
+              "misMatchPercentage" : 4.2300000000000004
+            }
+        },
+      "firefox" : { "/" : { "analysisTime" : 244,
+              "images" : { "build" : "screenshots/firefox/%2F/build.png",
+                  "diff" : "screenshots/firefox/%2F/diff.png",
+                  "prod" : "screenshots/firefox/%2F/prod.png"
+                },
+              "isSameDimensions" : false,
+              "misMatchPercentage" : 11.52
+            },
+          "/404.html" : { "analysisTime" : 61,
+              "images" : { "build" : "screenshots/firefox/%2F404.html/build.png",
+                  "diff" : "screenshots/firefox/%2F404.html/diff.png",
+                  "prod" : "screenshots/firefox/%2F404.html/prod.png"
+                },
+              "isSameDimensions" : true,
+              "misMatchPercentage" : 2.8399999999999999
+            }
+        },
+      "opera" : { "/" : { "analysisTime" : 140,
+              "images" : { "build" : "screenshots/opera/%2F/build.png",
+                  "diff" : "screenshots/opera/%2F/diff.png",
+                  "prod" : "screenshots/opera/%2F/prod.png"
+                },
+              "isSameDimensions" : true,
+              "misMatchPercentage" : 10.470000000000001
+            },
+          "/404.html" : { "analysisTime" : 48,
+              "images" : { "build" : "screenshots/opera/%2F404.html/build.png",
+                  "diff" : "screenshots/opera/%2F404.html/diff.png",
+                  "prod" : "screenshots/opera/%2F404.html/prod.png"
+                },
+              "isSameDimensions" : true,
+              "misMatchPercentage" : 3.5699999999999998
+            }
+        },
+      "safari" : { "/" : { "analysisTime" : 278,
+              "images" : { "build" : "screenshots/safari/%2F/build.png",
+                  "diff" : "screenshots/safari/%2F/diff.png",
+                  "prod" : "screenshots/safari/%2F/prod.png"
+                },
+              "isSameDimensions" : true,
+              "misMatchPercentage" : 12.51
+            },
+          "/404.html" : { "analysisTime" : 274,
+              "images" : { "build" : "screenshots/safari/%2F404.html/build.png",
+                  "diff" : "screenshots/safari/%2F404.html/diff.png",
+                  "prod" : "screenshots/safari/%2F404.html/prod.png"
+                },
+              "isSameDimensions" : true,
+              "misMatchPercentage" : 2.4199999999999999
+            }
+        }
+    },
+  "diffCount" : 8,
+  "sameCount" : 0,
+  "totalAnalysisTime" : 1340
+}

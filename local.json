@@ -1,0 +1,61 @@
+{
+  "chrome": {
+    "index.html": {
+      "images": { 
+      	"production": "production.png",
+	    "build": "build.png",
+	    "viff": "viff.png"
+      },
+      "hasDiff": true,
+      "mismatchpercent": "10"
+    },
+    "home.html": {
+      "images": { "production": "production.png",
+      "build": "build.png",
+      "viff": "viff.png"},
+      "hasDiff": false
+    },
+    "contact.html": {
+      "images": { "production": "production.png",
+      "build": "build.png",
+      "viff": "viff.png"},
+      "hasDiff": true,
+      "mismatchpercent": "10"
+    }
+  },
+  "ie": {
+    "index.html": {
+      "images": { "production": "production.png",
+      "build": "build.png",
+      "viff": "viff.png"},
+      "hasDiff": true,
+      "mismatchpercent": "10"
+    },
+    "contact.html": {
+      "images": { "production": "production.png",
+      "build": "build.png",
+      "viff": "viff.png"},
+      "hasDiff": false
+    }
+  },
+  "firefox": {
+    "index.html": {
+      "images": { 
+      	"production": "production.png",
+      	"build": "build.png",
+      	"viff": "viff.png"
+      	},
+      "hasDiff": true,
+      "mismatchpercent": "10"
+    },
+    "home.html": {
+      "images": { 
+      	"production": "production.png",
+      	"build": "build.png",
+      	"viff": "viff.png"
+      	},
+      "hasDiff": true,
+      "mismatchpercent": "10"
+    }
+  }
+}

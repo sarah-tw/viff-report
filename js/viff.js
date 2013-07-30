@@ -28,6 +28,15 @@ function ViffCtrl ($scope, $http) {
 
     $scope.currentBrowser = $scope.browsers[0];
 
+    $scope.$watch('currentBrowser', function () {
+      angular.forEach($scope.pages, function(page){
+        if(page.browser == $scope.currentBrowser) {
+          $scope.currentPage = page;
+          return;
+        }
+      })
+    });
+
     $scope.currentPage = $scope.pages[0];
 
     $scope.viffPages = function(){

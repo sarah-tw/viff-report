@@ -32,6 +32,9 @@ header {
 .nav-bar ul li span{
 	padding: 4px 8px;
 }
+.active-true:after {
+	content: "->"
+}
 .viff-true {
 	background-color: red;
 }

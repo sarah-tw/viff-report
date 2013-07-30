@@ -4,8 +4,9 @@
   <title>Viff Report</title>
   <link rel="stylesheet" type="text/css" href="css/index.css">
   <script type="text/javascript" src="js/angular.min.js"></script>
-  <script type="text/javascript" src="js/app.js"></script>
   <script type="text/javascript" src="js/viff.js"></script>
+  <script type="text/javascript" src="js/filter.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
 </head>
 <body ng-controller="ViffCtrl">
   
@@ -38,7 +39,7 @@
       <input type="text" ng-model="query">Search
       <ul>
         <li ng-repeat="page in pages | filter:query | orderBy: orderPro | filter: hasDiff | filter: currentBrowser">
-          <span ng-click="changePath(page.url)" class="viff-{{!page.isSameDimensions}}">{{page.url}}</span>
+          <span ng-click="setCurrentPage(page.url)" class="viff-{{!page.isSameDimensions}}">{{page.url}}</span>
         </li>
       </ul>
     </div> 
@@ -46,17 +47,17 @@
     <div class="test-report" style="border-right: 2px solid #ccc">
       <div class="local">
         <h4>{{currentPage.envs[0]["name"]}}</h4>
-        <img ng-src="{{evn1Shot}}" style="max-width:400px; max-height: 800px">
+        <img ng-src="{{ currentPage.envs[0]['filePath'] | encodeurl }}" style="max-width:400px; max-height: 800px">
       </div>
       <div class="production">
       <h4>{{currentPage.envs[1]["name"]}}</h4>
-      <img ng-src="{{evn2Shot}}" style="max-width:400px; max-height: 800px">
+      <img ng-src="{{currentPage.envs[1]['filePath'] | encodeurl}}" style="max-width:400px; max-height: 800px">
     </div>
     </div>
 
     <div class="viff-report">
       <h4>Viff screenshot(misMatchPercentage: {{currentPage.misMatchPercentage}})</h4>
-      <img src="{{viffShot}}" style="max-width:400px; max-height: 800px">
+      <img src="{{currentPage.viff | encodeurl}}" style="max-width:400px; max-height: 800px">
       <br>
 
       <button ng-click="acceptDiff()">accept this diff</button>

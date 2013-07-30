@@ -30,39 +30,39 @@
     
     <div class="viff-result" >
      Finished in {{currentPage.analysisTime}}ms
+   </div>
+
+   <div style="clear:both"></div>
+ </header>
+ <div class="main-content">
+  <div class="nav-bar">
+    <input type="text" ng-model="query">Search
+    <ul>
+      <li ng-repeat="page in pages | filter:query | orderBy: orderPro | filter: hasDiff | filter: currentBrowser">
+        <span ng-click="setCurrentPage(page.url)" class="viff-{{!page.isSameDimensions}}">{{page.url}}</span>
+      </li>
+    </ul>
+  </div> 
+
+  <div class="test-report" style="border-right: 2px solid #ccc">
+    <div class="local">
+      <h4>{{currentPage.envs[0]["name"]}}</h4>
+      <img ng-src="{{ currentPage.envs[0]['filePath'] | encodeurl }}" style="max-width:400px; max-height: 800px">
     </div>
-
-    <div style="clear:both"></div>
-  </header>
-  <div class="main-content">
-    <div class="nav-bar">
-      <input type="text" ng-model="query">Search
-      <ul>
-        <li ng-repeat="page in pages | filter:query | orderBy: orderPro | filter: hasDiff | filter: currentBrowser">
-          <span ng-click="setCurrentPage(page.url)" class="viff-{{!page.isSameDimensions}}">{{page.url}}</span>
-        </li>
-      </ul>
-    </div> 
-
-    <div class="test-report" style="border-right: 2px solid #ccc">
-      <div class="local">
-        <h4>{{currentPage.envs[0]["name"]}}</h4>
-        <img ng-src="{{ currentPage.envs[0]['filePath'] | encodeurl }}" style="max-width:400px; max-height: 800px">
-      </div>
-      <div class="production">
+    <div class="production">
       <h4>{{currentPage.envs[1]["name"]}}</h4>
       <img ng-src="{{currentPage.envs[1]['filePath'] | encodeurl}}" style="max-width:400px; max-height: 800px">
     </div>
-    </div>
-
-    <div class="viff-report">
-      <h4>Viff screenshot(misMatchPercentage: {{currentPage.misMatchPercentage}})</h4>
-      <img src="{{currentPage.viff | encodeurl}}" style="max-width:400px; max-height: 800px">
-      <br>
-
-      <button ng-click="acceptDiff()">accept this diff</button>
-    </div>
   </div>
+
+  <div class="viff-report">
+    <h4>Viff screenshot(misMatchPercentage: {{currentPage.misMatchPercentage}})</h4>
+    <img src="{{currentPage.viff | encodeurl}}" style="max-width:400px; max-height: 800px">
+    <br>
+
+    <button ng-click="acceptDiff()">accept this diff</button>
+  </div>
+</div>
 
 </body>
 </html>

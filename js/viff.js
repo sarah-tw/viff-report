@@ -26,30 +26,30 @@ function ViffCtrl ($scope, $http) {
       });
     });
 
-  $scope.currentBrowser = $scope.browsers[0];
+    $scope.currentBrowser = $scope.browsers[0];
 
-  $scope.currentPage = $scope.pages[0];
+    $scope.currentPage = $scope.pages[0];
 
-  $scope.viffPages = function(){
-    var pages = []
-    angular.forEach($scope.pages, function(page){
-      if(!page.isSameDimensions) pages.push(page);
-    });
-    return pages;
-  }
+    $scope.viffPages = function(){
+      var pages = []
+      angular.forEach($scope.pages, function(page){
+        if(!page.isSameDimensions) pages.push(page);
+      });
+      return pages;
+    }
 
-  $scope.acceptDiff = function(){
-    $scope.currentPage.isSameDimensions = true;
-  }
+    $scope.acceptDiff = function(){
+      $scope.currentPage.isSameDimensions = true;
+    }
 
-  $scope.setCurrentPage = function(url){
-    angular.forEach($scope.pages, function(page){
-      if(page.url == url && page.browser == $scope.currentBrowser) $scope.currentPage = page;
-    })
-  }
+    $scope.setCurrentPage = function(url){
+      angular.forEach($scope.pages, function(page){
+        if(page.url == url && page.browser == $scope.currentBrowser) $scope.currentPage = page;
+      })
+    }
     
   });
 
-  
+
   // body...
 }

@@ -13,15 +13,7 @@
   <header>
     <h1>Viff Report(<span> {{pages.length - viffPages().length}} </span> pass in <span> {{pages.length}} </span>cases)</h1>
 
-    <select class="select-browser" ng-model="currentBrowser">
-      <option value="chrome">chrome</option>
-      <option value="ie">ie</option>
-      <option value="firefox">firefox</option>
-      <option value="safari">safari</option>
-      <!-- <option ng-repeat="browser in browsers" value="{{browser}}" >
-        {{browser}}
-      </option> -->
-    </select>
+    <select class="select-browser" ng-options="browser for browser in browsers" ng-model="currentBrowser"></select>
 
     <div class="show-all-cases">
       

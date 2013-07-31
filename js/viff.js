@@ -48,7 +48,7 @@ function ViffCtrl ($scope, $http) {
     }
 
     $scope.acceptDiff = function(){
-      $scope.currentPage.isSameDimensions = true;
+      $scope.currentPage.misMatchPercentage = 0.0;
     }
 
     $scope.setCurrentPage = function(url){

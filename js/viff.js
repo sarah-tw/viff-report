@@ -2,8 +2,8 @@ function ViffCtrl ($scope, $http) {
   
   $http.get("report.json").success(function(data){
     $scope.caseCount = data.caseCount;
-    $scope.pages = []
-    $scope.browsers = []
+    $scope.pages = [];
+    $scope.browsers = [];
 
     angular.forEach(data.compares, function(urls, browser){
       $scope.browsers.push(browser);
